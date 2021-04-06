@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', monospace;
+}
+
+body{
+    background-color: #241F20;
+}
+
+.body{
+    padding: 0 50px;
+    display: grid;
+    align-content: center;
+    height: 100vh;
+}
+
+.body h1{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 3.5rem;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.body div p{
+    text-align: center;
+    color: #fff;
+}
+
+.res{
+    width: 20%;
+    border-radius: 20px;
+    padding: 20px 0;
+    margin: 10px auto;
+    color: #241F20;
+    border: 1px solid #fff;
+}
+
+.grid{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.grid .card{
+    box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.1), 
+    0px 2px 4px -1px rgba(0,0,0,0.06);
+    width: 80%;
+    text-align: center;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 20px;
+    height: 250px;
+    padding: 40px 20px;
+    transition: .5s;
+}
+
+.card h2{
+    text-transform: uppercase;
+    color: #422a74;
+    display: block;
+    margin-top: 25px;
+}
+
+.card .iconify{
+    color: #422a74;
+}
+
+.card:hover{
+    background: #6b4cae;
+    color: #fff;
+}
+
+.reset{
+    cursor: pointer;
+    width: 30%;
+    border-radius: 20px;
+    padding: 20px 0;
+    margin: 20px auto;
+    color: #241F20;
+    background: #ffffff4d;
+}

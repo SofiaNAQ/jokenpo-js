@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Pedra, Papel, Tesoura - Jogue agora!</title>
+</head>
+<body>
+    <div class="body">
+        <h1> Jokenpô! </h1>
+
+        <div>
+            <p class="resUser"> Você! </p>
+        </div>
+        <div>
+            <p class="resPC"> Computador </p>
+        </div>
+        <div class="res">
+            <p class="final"> Resultado </p>
+        </div>
+        
+        <div class="grid">
+            <div class="card pedra" onclick="jogo(0)">
+                <span class="iconify" data-inline="false" data-icon="fa-solid:fist-raised" 
+                style="font-size: 180px;"></span>
+                <h2>Pedra</h2>
+            </div>
+            <div class="card papel" onclick="jogo(1)">
+                <span class="iconify" data-inline="false" data-icon="fa-solid:hand-paper" 
+                style="font-size: 180px;"></span>
+                <h2>Papel</h2>
+            </div>
+            <div class="card tes" onclick="jogo(2)">
+                <span class="iconify" data-inline="false" data-icon="fa-solid:hand-scissors" 
+                style="font-size: 180px;"></span>
+                <h2>Tesoura</h2>
+            </div>
+            <!--<a href="#" class="pedra" onclick="jogo(0)">Pedra</a>
+            <a href="#" class="pedra" onclick="jogo(1)">Papel</a>
+            <a href="#" class="pedra" onclick="jogo(2)">Tesoura</a>-->
+        </div>
+
+        <div class="reset" onclick="reset()">
+            <p>
+                Reiniciar!
+                <span class="iconify" data-inline="false" data-icon="grommet-icons:power-reset" style="font-size: 1.5rem; margin-left: 10px;"></span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+
+        var itens = ['Pedra','Papel','Tesoura'];
+        let pedra = document.querySelector('.pedra');
+        let papel = document.querySelector('.papel');
+        let tes = document.querySelector('.tes');
+        let res = document.querySelector('.res');
+        let resPC = document.querySelector('.resPC');
+        let resUser = document.querySelector('.resUser');
+        let final = document.querySelector('.final');
+
+        function reset(){
+            console.log('reset!');
+            pedra.style.background = '#fff';
+            papel.style.background = '#fff';
+            tes.style.background = '#fff';
+            res.style.background = 'none';
+
+            resUser.innerHTML = "Você!";
+            resPC.innerHTML = "Computador";
+            final.innerHTML = "Resultado";
+        }
+
+        function jogo(user){
+            let rnd = Math.round(Math.random() * (2 - 0) + 0);
+            resPC.innerHTML = rnd;
+
+            resUser.innerHTML = `Você escolheu: ${itens[user]}`;
+            resPC.innerHTML = `O computador escolheu: ${itens[rnd]}`;
+
+            switch(user){
+                case 0:
+                    pedra.style.background = '#6b4cae';
+                    papel.style.background = '#fff';
+                    tes.style.background = '#fff';
+                    break;
+                case 1:
+                    pedra.style.background = '#fff';
+                    papel.style.background = '#6b4cae';
+                    tes.style.background = '#fff';
+                    break;
+                case 2:
+                    pedra.style.background = '#fff';
+                    papel.style.background = '#fff';
+                    tes.style.background = '#6b4cae';
+                    break;
+            }
+
+            switch(rnd){
+                case 0:
+                    pedra.style.background = '#FF8181';
+                    break;
+                case 1:
+                    papel.style.background = '#FF8181';
+                    break;
+                case 2:
+                    tes.style.background = '#FF8181';
+                    break;
+            }
+           
+            if ((user == 0 && rnd == 0) || (user == 1 && rnd == 1) || (user == 2 && rnd == 2)){
+                final.innerHTML = "EMPATE!";
+                res.style.background = '#6b4cae';
+                
+            }
+
+            else if ((user == 0 && rnd == 1) || (user == 1 && rnd == 2) || (user == 2 && rnd == 0)){
+                final.innerHTML = "DERROTA!";
+                res.style.background = '#FF8181';
+            }
+
+            else if ((user == 0 && rnd == 2) || (user == 1 && rnd == 0) || (user == 2 && rnd == 1)){
+                final.innerHTML = "VITÓRIA!";
+                res.style.background = '#B2F522';
+            }
+
+        }
+    </script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+
+</body>
+</html>
